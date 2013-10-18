@@ -52,7 +52,7 @@ module SimpleCalendar
 
               week.collect do |date|
                 td_class = ["day"]
-                td_class << "today123" if today == date
+                td_class << "today" if today == date
                 td_class << "not-current-month" if selected_month.month != date.month
                 td_class << "past" if today > date
                 td_class << "future" if today < date
@@ -70,7 +70,9 @@ module SimpleCalendar
                     if cur_events.empty? && options[:empty_date]
                       concat options[:empty_date].call(date)
                     else
+                      divs << "<div class=\"entry_wrapper\">"
                       divs << cur_events.collect{ |event| block.call(event) }
+                      divs << "</div>"
                     end
 
                     divs.join.html_safe
