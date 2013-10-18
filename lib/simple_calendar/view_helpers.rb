@@ -52,7 +52,7 @@ module SimpleCalendar
 
               week.collect do |date|
                 td_class = ["day"]
-                td_class << "today" if today == date
+                td_class << "today123" if today == date
                 td_class << "not-current-month" if selected_month.month != date.month
                 td_class << "past" if today > date
                 td_class << "future" if today < date
