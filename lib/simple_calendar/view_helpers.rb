@@ -66,16 +66,16 @@ module SimpleCalendar
                   content_tag(:div) do
                     divs = []
                     concat content_tag(:div, date.day.to_s, :class=>"day_number")
-
+                    concat "<div class='entry_wrapper'>".html_safe
                     if cur_events.empty? && options[:empty_date]
                       concat options[:empty_date].call(date)
                     else
-                      divs << "<div class=\"entry_wrapper\">"
                       divs << cur_events.collect{ |event| block.call(event) }
-                      divs << "</div>"
                     end
 
                     divs.join.html_safe
+
+                    concat "</div>".html_safe
                   end #content_tag :div
                 end #content_tag :td
 
