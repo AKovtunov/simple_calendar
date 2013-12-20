@@ -62,7 +62,7 @@ module SimpleCalendar
 
                 td_class << (cur_events.any? ? "events" : "no-events")
 
-                content_tag(:td, :class => td_class.join(" "), 'data-remote', :'data-date-iso'=>date.to_s, 'data-date'=>date.to_s.gsub('-', '/')) do
+                content_tag(:td, :class => td_class.join(" "), 'data-remote'=>'true', :'data-date-iso'=>date.to_s, 'data-date'=>date.to_s.gsub('-', '/')) do
                   content_tag(:div) do
                     divs = []
                     concat content_tag(:div, date.day.to_s, :class=>"day_number")
